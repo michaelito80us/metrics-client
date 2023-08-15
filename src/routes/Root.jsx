@@ -1,4 +1,4 @@
-export default function Home({ setStart }) {
+export default function Root() {
   return (
     <div>
       <header className="flex min-h-screen flex-col items-center justify-center bg-bgpri text-white">
@@ -8,11 +8,8 @@ export default function Home({ setStart }) {
         <p className="pb-2">Prepared by: Michael Epelboim</p>
         <p>Date: Agust 10-17, 2023</p>
         <p className="mt-3 flex w-full items-center justify-center text-center text-[#8d96a7]">
-          <button
-            className="w-32 rounded-md border border-[#1fb6ae] py-2 text-[#1fb6ae] transition-all hover:cursor-pointer hover:border-[#1fb6ae]  hover:bg-[#1fb6ae] hover:text-white active:border-[#1fb6ae]/60 active:bg-[#1fb6ae]/60"
-            onClick={() => setStart(true)}
-          >
-            Let&apos;s start
+          <button className="w-32 rounded-md border border-[#1fb6ae] py-2 text-[#1fb6ae] transition-all hover:cursor-pointer hover:border-[#1fb6ae]  hover:bg-[#1fb6ae] hover:text-white active:border-[#1fb6ae]/60 active:bg-[#1fb6ae]/60">
+            <Link to={`home`}>Let&apos;s start</Link>
           </button>
         </p>
       </header>
