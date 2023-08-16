@@ -3,7 +3,6 @@ const baseurl = "http://localhost:3001/api/v1/";
 const httpService = {};
 
 httpService.addMeasurement = async (data) => {
-  console.log("data", data);
   try {
     const response = await fetch(baseurl + "metrics", {
       method: "POST",

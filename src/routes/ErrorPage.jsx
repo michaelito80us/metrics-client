@@ -5,7 +5,7 @@ export default function ErrorPage() {
   console.error(error);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full bg-bgpri min-h-screen text-white">
+    <div className="flex flex-col items-center justify-center w-full min-h-screen text-white bg-bgpri">
       <h1 className="bg-gradient-to-r from-emerald-300 to-sky-300 bg-clip-text pb-4 text-center text-5xl font-black leading-[3.5rem] text-transparent selection:bg-transparent">
         Oops!
       </h1>

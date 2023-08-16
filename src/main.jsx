@@ -3,8 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root.jsx";
-import ErrorPage from "./routes/Error-page.jsx";
+import ErrorPage from "./routes/ErrorPage.jsx";
 import Home from "./routes/Home.jsx";
+import Averages from "./routes/Averages";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "home",
     element: <Home />,
+  },
+  {
+    path: "averages",
+    element: <Averages />,
   },
 ]);
 

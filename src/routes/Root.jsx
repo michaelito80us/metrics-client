@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 export default function Root() {
   return (
     <div>
-      <header className="flex min-h-screen flex-col items-center justify-center bg-bgpri text-white">
+      <header className="flex flex-col items-center justify-center min-h-screen text-white bg-bgpri">
         <p className="bg-gradient-to-r from-emerald-300 to-sky-300 bg-clip-text pb-4 text-center text-5xl font-black leading-[3.5rem] text-transparent selection:bg-transparent">
           Welcome to the Factorial HR Home Assignment
         </p>
