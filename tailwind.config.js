@@ -7,6 +7,8 @@ export default {
         textpri: "#d6dadf",
         textsec: "#97b4b8",
         bgpri: "#2d353e",
+        factorial: "#ff365e",
+        factorialdark: "#e51943",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

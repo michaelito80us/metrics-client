@@ -1,6 +1,6 @@
 export default function MetricDisplay({ metricData }) {
   return (
-    <div className="w-[40%] border border-[#1fb6ae] rounded-md h-[60vh] p-10 min-w-[25rem]">
+    <div className="w-[40%] border border-[#1fb6ae] rounded-md h-[60vh] p-10 min-w-[25rem] min-h-[33rem]">
       {metricData.length > 0 && (
         <>
           <p className="mb-8 text-2xl">

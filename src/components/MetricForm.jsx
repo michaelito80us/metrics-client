@@ -18,7 +18,7 @@ export default function MetricForm({
   const { ref, ...rest } = register("timestamp");
 
   return (
-    <div className="w-[40%] border border-[#1fb6ae] rounded-md h-[60vh] p-10 min-w-[25rem]">
+    <div className="w-[40%] border border-[#1fb6ae] rounded-md h-[60vh] min-h-[33rem] p-10 min-w-[25rem]">
       <form className="flex flex-col h-full " onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-10 text-2xl">Record a Measurement</div>
         <label className="pb-2">Metric</label>

@@ -6,6 +6,7 @@ import Root from "./routes/Root.jsx";
 import ErrorPage from "./routes/ErrorPage.jsx";
 import Home from "./routes/Home.jsx";
 import Averages from "./routes/Averages";
+import AddMetrics from "./routes/AddMetrics.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,12 +15,18 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "home",
+    path: "metrics",
     element: <Home />,
-  },
-  {
-    path: "averages",
-    element: <Averages />,
+    children: [
+      {
+        path: "add",
+        element: <AddMetrics />,
+      },
+      {
+        path: "averages",
+        element: <Averages />,
+      },
+    ],
   },
 ]);
 
