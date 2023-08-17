@@ -21,7 +21,10 @@ export default function useMetrics(initialMetrics = []) {
 
   const addMeasurement = (formData) => {
     return http
-      .addMeasurement({ metric: formData })
+      .addMeasurement({
+        metric: formData,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      })
       .then((res) => {
         setMetricData(res.entries);
         setErrorFetching(false);

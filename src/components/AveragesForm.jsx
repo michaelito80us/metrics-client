@@ -1,28 +1,32 @@
-import CreatableSelect from "react-select/creatable";
+import Select from "react-select";
 
-export default function MetricForm({
-  register,
+export default function AveragesForm({
   control,
   formState,
+  register,
   handleSubmit,
-  useController,
   handleReset,
   metricsList,
-  timestampRef,
   onSubmit,
+  startTimeRef,
+  endTimeRef,
+  useController,
 }) {
   const { errors } = formState;
   const {
     field: { value: metricValue, onChange: metricOnChange, ...restMetricField },
   } = useController({ name: "name", control });
+  const { ref: startTimeRefRegister, ...rest } = register("startTime");
+  const { ref: endTimeRefRegister, ...rest2 } = register("endTime");
 
-  const { ref, ...rest } = register("timestamp");
   return (
-    <div className="w-[40%] border border-[#1fb6ae] rounded-md h-[60vh] min-h-[33rem] p-10 min-w-[25rem]">
-      <form className="flex flex-col h-full " onSubmit={handleSubmit(onSubmit)}>
-        <div className="mb-10 text-2xl">Record a Measurement</div>
-        <label className="pb-2">Metric</label>
-        <CreatableSelect
+    <div className="mx-auto w-fit">
+      <form
+        className="flex flex-col h-full w-72"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <label className="pb-2">Select a Metric</label>
+        <Select
           className=" text-black/60"
           styles={{
             control: (baseStyles) => ({
@@ -35,7 +39,7 @@ export default function MetricForm({
               color: "#8d96a7",
             }),
           }}
-          placeholder="Select or create a metric..."
+          placeholder="Select a metric..."
           isClearable
           options={metricsList}
           value={
@@ -51,27 +55,16 @@ export default function MetricForm({
             {errors.name?.message}
           </p>
         }
-        <label className="pb-2 mt-4">Value</label>
-        <input
-          className="border border-[#1fb6ae] rounded-md py-2 px-4 text-black/80 h-10 placeholder-[#8d96a7] "
-          placeholder="Enter a value"
-          {...register("value")}
-        />
-        {
-          <p className="h-3 text-xs italic text-red-500">
-            {errors.value?.message}
-          </p>
-        }
-        <label className="pb-2 mt-4">Timestamp</label>
+        <label className="pb-2 mt-4">Start Time</label>
         <input
           type="text"
           className="border border-[#1fb6ae] rounded-md py-2 px-4 text-black/80 h-10 placeholder-[#8d96a7]"
           placeholder="Choose a date and time"
           step="1"
-          {...register("timestamp")}
+          {...register("startTime")}
           ref={(e) => {
-            ref(e);
-            timestampRef.current = e;
+            startTimeRefRegister(e);
+            startTimeRef.current = e;
           }}
           onFocus={(e) => {
             e.currentTarget.type = "datetime-local";
@@ -79,10 +72,35 @@ export default function MetricForm({
         />
         {
           <p className="h-3 max-w-full text-xs italic text-red-500">
-            {errors.timestamp?.message}
+            {errors.startTime ? "This is a required field" : null}
           </p>
         }
-        <div className="flex items-center justify-end flex-grow">
+        <label className="pb-2 mt-4">End Time</label>
+        <input
+          type="text"
+          className="border border-[#1fb6ae] rounded-md py-2 px-4 text-black/80 h-10 placeholder-[#8d96a7]"
+          placeholder="Choose a date and time"
+          step="1"
+          {...register("endTime")}
+          ref={(e) => {
+            endTimeRefRegister(e);
+            endTimeRef.current = e;
+          }}
+          onFocus={(e) => {
+            e.currentTarget.type = "datetime-local";
+          }}
+        />
+        {
+          <p className="h-3 max-w-full text-xs italic text-red-500">
+            {errors.endTime?.message ===
+            "End time can't be earlier than start time"
+              ? errors.endTime.message
+              : errors.endTime
+              ? "This is a required field"
+              : null}
+          </p>
+        }
+        <div className="flex items-center justify-end flex-grow mt-10">
           <input
             className="mr-4 cursor-pointer"
             type="button"

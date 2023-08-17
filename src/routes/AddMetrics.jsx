@@ -7,10 +7,14 @@ import MetricDisplay from "../components/MetricDisplay";
 import useMetrics from "../hooks/useMetrics";
 
 const schema = yup.object({
-  name: yup.string().required(),
-  value: yup.number().required(),
-  timestamp: yup.date().required(),
+  name: yup.string().required("This field is required"),
+  value: yup
+    .number()
+    .transform((value) => (isNaN(value) ? undefined : value))
+    .required("This field is required and must be a number"),
+  timestamp: yup.string().required("this field is required"),
 });
+
 export default function AddMetrics() {
   const {
     metricsList,
@@ -41,7 +45,7 @@ export default function AddMetrics() {
   };
 
   return (
-    <div className="flex flex-wrap items-center min-h-[calc(100vh-4rem)] gap-10 overflow-hidden text-white justify-evenly bg-bgpri">
+    <>
       <MetricForm
         {...{
           control,
@@ -56,6 +60,6 @@ export default function AddMetrics() {
         }}
       />
       <MetricDisplay metricData={metricData} />
-    </div>
+    </>
   );
 }
