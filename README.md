@@ -41,6 +41,7 @@ After executing these commands, the frontend will be accessible at `http://local
 - **Moment.js**: A library to manipulate and format dates.
 - **React-Hook-Form**: Efficient, flexible and extensible forms in React.
 - **React-Select**: A flexible and powerful Select Input control for React.
+- **Recharts**: A tool to easily create charts in React.
 
 ## Features
 
