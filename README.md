@@ -13,7 +13,6 @@ Develop a Frontend + Backend application that facilitates the posting and visual
   - [Installing and Running the Client](#installing-and-running-the-client)
 - [Technologies Used](#technologies-used)
 - [Features](#features)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Frontend Setup
